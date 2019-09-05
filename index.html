@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery-Mobile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="themes/triptique.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="./css/jquerymin.css" />
+	<link rel="stylesheet" href="./css/main.css" />
+
+	<script type="text/javascript" src="./js/jquerymin"></script>
+	<script type="text/javascript" src="./js/jquerymobile.js"></script>
+	<script type="text/javascript" src="./js/database.js"></script>
+</head>
+
+<body>
+	<!------------------page 1 : ACCUEIL------------------------------------->
+
+	<div data-role="page" id="page1" data-theme="a">
+		<div data-role="header">
+			<a data-icon="back" data-rel="back" class="ui-corner-all ui-btn-icon-top" data-transition="flip">retour</a>
+			<h1>M'Happy Baby</h1>
+		</div>
+
+		<div data-role="content">
+			C'est notre app fait à partir de JQuery Mobile
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-grid="c">
+				<ul>
+					<li><a href="#page1" data-icon="home" class="ui-btn-active" >HOME</a></li>
+					<li><a href="#page2" data-icon="tag">PLUS</a></li>
+					<li><a href="#page3" data-icon="localisation">CARTE</a></li>
+					<li><a href="#page4"data-icon="profil">PROFIL</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!------------------page 2 : FORMULAIRE------------------------------------->
+	<div data-role="page" id="page2" data-theme="a">
+		<div data-role="header">
+			<a data-icon="back" data-rel="back" class="ui-corner-all ui-btn-icon-top" data-transition="flip">retour</a>
+			<h1>Formulaire</h1>
+		</div>
+
+		<div data-role="content">
+	
+			<form method="post" id="AjaxLieux" data-mini="true">
+				<h1>Adresse</h1>
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<label for="streetNum">numéro</label>
+						<input type="search" name="streetNum" value="num">
+					</div>
+
+					<div class="ui-block-b">
+						<label for="streetType" class="select">type</label>
+						<select name="streetType" id="streetType" data-mini="true">
+							<option value="rue">rue</option>
+							<option value="avenue">avenue</option>
+							<option value="impasse">impasse</option>
+							<option value="bd">boulevard</option>
+							<option value="chemin">chemin</option>
+						</select> 
+					</div>
+					<div class="ui-block-c">
+						<label for="streetName">nom</label>
+						<input type="search" name="streetName" value="" placeholder="nom">
+					</div>
+				</div>
+
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<label for="postalcode">Code Postal</label>
+						<input type="search" name="postalcode" value="" placeholder="code postal">
+					</div>
+					<div class="ui-block-b">
+						<div class="ui-block-a">
+							<label for="city">Ville</label>
+							<input type="search" name="city" value="" placeholder="ville">
+						</div>
+					</div>
+				</div>
+
+				<h1>Appreciation</h1>
+				<label for="eval">votre niveau de satisfaction global</label>
+				<input type="range" name="eval" min="0" max="5" step="1" data-highlight="true">
+
+				<h1>Elements présents</h1>
+				<div class="ui-grid-d">
+					<div class="ui-block-a">
+						<label for="table">Table à langer</label>
+						<select name="table" data-role="slider" data-mini="true">
+							<option value="off">non</option>
+							<option value="on">OUI</option>
+						</select>
+					</div>
+					<div class="ui-block-b">
+						<label for="chair" data-button="plus">Chaise haute</label>
+						<select name="chair" data-role="slider" data-mini="true">
+							<option value="off">
+								non
+							</option>
+							<option value="on">
+								OUI
+							</option>
+						</select>
+					</div>
+					<div class="ui-block-c">
+						<label for="jouet" data-button="plus">Jouets bebe</label>
+						<select name="jouet" data-role="slider" data-mini="true">
+							<option value="off">
+								non
+							</option>
+							<option value="on">
+								OUI
+							</option>
+						</select>
+					</div>
+					<div class="ui-block-d">
+						<label for="microwave" data-button="plus">Micro Ondes</label>
+						<select name="microwave" data-role="slider" data-mini="true">
+							<option value="off">
+								non
+							</option>
+							<option value="on">
+								OUI
+							</option>
+						</select>
+					</div>
+					<div class="ui-block-e">
+						<label for="breastfeed" data-button="plus">Allaitement possible</label>
+						<select name="breastfeed" data-role="slider" data-mini="true">
+							<option value="off">
+								non
+							</option>
+							<option value="on">
+								OUI
+							</option>
+						</select>
+					</div>
+				</div>
+				<input type="submit" id="lieuxadd" value="SOUMETTRE" data-icon="action"/>
+			</form>
+
+			<h1>Resultat</h1>
+			
+		</div>
+
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-grid="c">
+				<ul>
+					<li><a href="#page1" data-icon="home" class="ui-btn-active" >HOME</a></li>
+					<li><a href="#page2" data-icon="tag">PLUS</a></li>
+					<li><a href="#page3" data-icon="localisation">CARTE</a></li>
+					<li><a href="#page4"data-icon="profil">PROFIL</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!------------------page 3 : CARTE------------------------------------->
+	<div data-role="page" id="page3" data-theme="b">
+		<div data-role="header">
+			<a data-icon="back" data-rel="back" class="ui-corner-all ui-btn-icon-top" data-transition="flip">retour</a>
+			<h1>Geolocalisation</h1>
+		</div>
+
+		<div data-role="content">
+			INSERER la carte et les filtres de lectures
+			inserer le point information i pour la légende
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-grid="c">
+				<ul>
+					<li><a href="#page1" data-icon="home" >HOME</a></li>
+					<li><a href="#page2" data-icon="tag">PLUS</a></li>
+					<li><a href="#page3" data-icon="localisation"class="ui-btn-active">CARTE</a></li>
+					<li><a href="#page4"data-icon="profil">PROFIL</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!------------------page 4 : PROFIL------------------------------------->
+	<div data-role="page" id="page4" data-theme="c">
+		<div data-role="header">
+			<a data-icon="back" data-rel="back" class="ui-corner-all ui-btn-icon-top" data-transition="flip">retour</a>
+			<h1>PROFIL</h1>
+		</div>
+
+		<div data-role="content">
+			<form method="post" id="AjaxUsers">
+				<label for="username">nom utilisateur</label>
+				<input type="search" name="username" value="nom">
+
+				<input type="submit" id="useradd" value="envoyer" data-icon="action"/>
+			</form>
+<div id="result">
+			</div>
+			Identification
+			<br>	
+			Mes preferences d'affichage
+			<br>	
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-grid="c">
+				<ul>
+					<li><a href="#page1" data-icon="home" >HOME</a></li>
+					<li><a href="#page2" data-icon="tag" >PLUS</a></li>
+					<li><a href="#page3" data-icon="localisation">CARTE</a></li>
+					<li><a href="#page4"data-icon="profil" class="ui-btn-active">PROFIL</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
